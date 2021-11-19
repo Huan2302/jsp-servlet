@@ -1,0 +1,17 @@
+package com.example.uitil;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+
+public class AuthUtil {
+	
+	public static boolean checkLogin(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		HttpSession session = request.getSession();
+		if (session.getAttribute("admin") == null) {
+			return false;
+		}
+		return true;
+	}
+}
